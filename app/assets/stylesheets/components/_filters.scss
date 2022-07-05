@@ -1,0 +1,11 @@
+@import 'abstracts';
+
+.filters {
+  margin-bottom: 2rem;
+  display: flex;
+  gap: 1rem;
+
+  a {
+    @include filter-chip;
+  }
+}
