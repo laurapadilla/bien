@@ -1,0 +1,36 @@
+@import 'abstracts';
+
+h3 {
+  font-size: $font-size-lg;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+form {
+ .input-wrapper {
+   margin-bottom: 1rem;
+ }
+}
+
+.body {
+  p {
+    margin: 1rem 0;
+  }
+}
+
+.actions {
+  align-items: center;
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+
+  button {
+    @include btn;
+    color: $danger;
+    transition: $transitionAll;
+
+    &:hover {
+      color: darken($danger, 10%);
+    }
+  }
+}

@@ -1,0 +1,51 @@
+@import 'abstracts';
+
+@import url('https://fonts.googleapis.com/css2?family=Karla:wght@400;700&family=Lora:wght@400;600&display=swap');
+
+body {
+  color: $text-color;
+  font-family: $bodyFont;
+  letter-spacing: $letter-spacing-sm;
+  font-size: $font-size;
+  line-height: $line-height;
+}
+
+a {
+  color: $link-text;
+  text-decoration: none;
+  transition: $transitionAll;
+
+  &:hover {
+    color: darken($link-text, 20%);
+  }
+}
+
+header, main, footer {
+  padding: 2rem;
+}
+
+header {
+  @include flex;
+  background: $header-bg-color;
+
+  img {
+    width: 80px;
+    vertical-align: initial;
+  }
+}
+
+main {
+  min-height: calc(100vh - 150px);
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  color: $footer-text;
+}
+
+textarea {
+  min-height: 400px;
+}

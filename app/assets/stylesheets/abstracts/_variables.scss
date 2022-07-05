@@ -1,0 +1,36 @@
+// Base Colors
+$green: #3bc8aa;
+$orange: #ff551a;
+$red: #cf3500;
+$black: #1e1e1e;
+$gray: #999;
+$yellow: #ffeccf;
+$white: #fff;
+
+//  Typography
+$titleFont: 'Lora';
+$bodyFont: 'Karla';
+$text-color: $black;
+$text-color-accent: $orange;
+$footer-text: $gray;
+$link-text: $green;
+$letter-spacing-sm: -0.5px;
+$letter-spacing-default: normal;
+$line-height: 1.5;
+
+$font-size-xs: 0.875rem;
+$font-size-sm: 1rem;
+$font-size: 1.125rem;
+$font-size-md: 1.25rem;
+$font-size-lg: 1.5rem;
+$font-size-xl: 2rem;
+$font-size-xl2: 2.5rem;
+
+//  Elements
+$header-bg-color: $yellow;
+
+// States
+$danger: $red;
+
+// Utilities
+$transitionAll: all 0.2s ease-in-out;

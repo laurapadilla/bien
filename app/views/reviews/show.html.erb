@@ -2,15 +2,15 @@
   <%= @review.title %>
 </h1>
 
-<p>
+<div class="score">
   <%= @review.score %> / 10
-</p>
+</div>
 
 <div class="body">
   <%= simple_format @review.body %>
 </div>
 
-<div class="actions">
-  <%= link_to "Edit review", edit_review_path(@review) %>
-  <%= button_to "Delete review", review_path(@review), method: :delete, onclick: "return confirm('Are you sure??')"  %>
-</div>
+<section class="actions">
+    <%= link_to "Edit review", edit_review_path(@review) %>
+    <%= button_to "Delete review", review_path(@review), method: :delete, onclick: "return confirm('Are you sure??')"  %>
+</section>

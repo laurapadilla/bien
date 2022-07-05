@@ -1,21 +1,20 @@
 <%= form_for @review do |f| %>
 
-<p>
+<div class="input-wrapper">
   <%= f.label :title %>
   <%= f.text_field :title %>
-</p>
+</div>
 
-<p>
+<div class="input-wrapper">
   <%= f.label :body %>
   <%= f.text_area :body %>
-</p>
+</div>
 
-<p>
+<div class="input-wrapper">
   <%= f.label :score %>
   <%= f.number_field :score %>
-</p>
+</div>
 
 <%= f.submit "Save review" %>
-
 
 <% end %>
