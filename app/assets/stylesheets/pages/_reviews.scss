@@ -13,9 +13,13 @@ form {
 }
 
 .errors {
+  background: lighten($danger, 55%);
+  padding: 1rem;
+  margin-bottom: 1rem;
+
   p {
     color: $danger;
-    margin: 1rem 0;
+    margin: 0.5rem 0;
   }
 }
 
