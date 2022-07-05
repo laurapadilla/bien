@@ -10,6 +10,10 @@ body {
   line-height: $line-height;
 }
 
+button {
+  @include btn;
+}
+
 a {
   color: $link-text;
   text-decoration: none;
@@ -32,6 +36,10 @@ header {
     width: 80px;
     vertical-align: initial;
   }
+
+  nav a {
+    font-size: $font-size-lg;
+  }
 }
 
 main {
@@ -39,6 +47,7 @@ main {
 }
 
 footer {
+  pointer-events: none;
   position: fixed;
   bottom: 0;
   left: 0;

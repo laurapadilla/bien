@@ -12,25 +12,32 @@ form {
  }
 }
 
+.errors {
+  p {
+    color: $danger;
+    margin: 1rem 0;
+  }
+}
+
 .body {
   p {
     margin: 1rem 0;
   }
 }
 
-.actions {
-  align-items: center;
-  display: flex;
-  gap: 1rem;
-  margin-top: 1rem;
+ .actions {
+   align-items: center;
+   display: flex;
+   gap: 1rem;
+   margin-top: 1rem;
 
-  button {
-    @include btn;
-    color: $danger;
-    transition: $transitionAll;
+   button {
+     @include btn;
+     color: $danger;
+     transition: $transitionAll;
 
-    &:hover {
-      color: darken($danger, 10%);
-    }
-  }
-}
+     &:hover {
+       color: darken($danger, 10%);
+     }
+   }
+ }

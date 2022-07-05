@@ -17,6 +17,7 @@ input[type=submit] {
   color: $white;
   border-color: $orange;
   transition: $transitionAll;
+  cursor: pointer;
 
   &:hover {
     background: darken($orange, 10%);

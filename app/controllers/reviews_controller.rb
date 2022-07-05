@@ -18,11 +18,16 @@ class ReviewsController < ApplicationController
     # take info from form and add it to the database
     @review = Review.new(form_params)
 
-    # save form info to the database
-    @review.save
+    # check if the model can be saved
+    # if reviewed is saved, redirect to the homepage
+    # if it isn't saved, then show the new review form
+    if @review.save
+      redirect_to root_path
+    else
+      #show the view for new.html.erb
+      render "new", status: :unprocessable_entity
+    end
 
-    # redirect back to home page
-    redirect_to root_path
   end
 
 # Individual review page
@@ -32,7 +37,6 @@ class ReviewsController < ApplicationController
   end
 
   # Delete review
-
   def destroy
     # find individual review to destroy
     @review = Review.find(params[:id])
@@ -56,10 +60,13 @@ class ReviewsController < ApplicationController
     @review = Review.find(params[:id])
 
     # update with new info
-    @review.update(form_params)
+    if @review.update(form_params)
+      #redirect to home
+      redirect_to review_path(@review)
 
-    #redirect to home
-    redirect_to review_path(@review)
+    else
+      render "edit", status: :unprocessable_entity
+    end
   end
 
   def form_params
