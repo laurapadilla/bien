@@ -3,11 +3,9 @@
 <% if @review.errors.any? %>
 
 <section class="errors">
-
   <% @review.errors.full_messages.each do |message| %>
     <p><%= message %></p>
   <% end %>
-
 </section>
 
 <% end %>
@@ -35,6 +33,17 @@
 <div class="input-wrapper">
   <%= f.label :ambiance %>
   <%= f.text_field :ambiance %>
+</div>
+
+<div class="input-wrapper">
+  <%= f.label :cuisine %>
+  <%= f.text_field :cuisine %>
+</div>
+
+
+<div class="input-wrapper">
+  <%= f.label :price %>
+  <%= f.number_field :price %>
 </div>
 
 <%= f.submit "Save review" %>

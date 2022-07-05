@@ -70,7 +70,7 @@ class ReviewsController < ApplicationController
   end
 
   def form_params
-    params.require(:review).permit(:title, :body, :score, :restaurant, :ambiance)
+    params.require(:review).permit(:title, :body, :score, :restaurant, :ambiance, :cuisine, :price)
   end
 
 end

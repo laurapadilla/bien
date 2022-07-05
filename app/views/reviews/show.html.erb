@@ -9,12 +9,24 @@
 </p>
 
 <p class="restaurant">
-<%= @review.restaurant %>
+  <%= @review.restaurant %>
 </p>
 
 <% if @review.ambiance.present? %>
   <p class="ambiance">
     Ambiance:  <%= @review.ambiance %>
+  </p>
+<% end %>
+
+<% if @review.cuisine.present? %>
+  <p class="cuisine">
+    Cuisine:  <%= @review.cuisine %>
+  </p>
+<% end %>
+
+<% if @review.price.present? %>
+  <p class="price">
+    Price:  <%= @review.price %>
   </p>
 <% end %>
 
