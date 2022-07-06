@@ -27,6 +27,12 @@ gem "stimulus-rails"
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"
 
+# Silence net protocol warnings
+# See https://github.com/rails/rails/pull/44175
+gem 'net-http'
+
+gem 'uri', '0.10.0'
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 
