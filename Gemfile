@@ -45,6 +45,12 @@ gem 'uri', '0.10.0'
 # Add our geocoding
 gem "geocoder"
 
+# Make our forms nice and easy
+gem 'simple_form'
+
+# Active state for filter links
+gem 'active_link_to'
+
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 

@@ -23,7 +23,7 @@
   padding: 0.5rem 1rem;
   transition: $transitionAll;
 
-  &:hover {
+  &:hover, &.active {
     background: $green;
     color: $text-color-inverted;
   }

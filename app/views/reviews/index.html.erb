@@ -2,19 +2,19 @@
 
 <nav class="filters">
   <div class="">
-    <%= link_to "All Restaurants", root_path %>
+    <%= active_link_to "All Restaurants", root_path, active: { price: nil, cuisine: nil, location: nil } %>
   </div>
   <div >
-    <%= link_to "$", root_path(price: 1, cuisine: @cuisine, location: @location) %>
-    <%= link_to "$$", root_path(price: 2, cuisine: @cuisine, location: @location) %>
-    <%= link_to "$$$", root_path(price: 3, cuisine: @cuisine, location: @location) %>
-    <%= link_to "$$$$", root_path(price: 4, cuisine: @cuisine, location: @location) %>
+    <%= active_link_to "$", root_path(price: 1, cuisine: @cuisine, location: @location), active: { price: 1} %>
+    <%= active_link_to "$$", root_path(price: 2, cuisine: @cuisine, location: @location), active: { price: 2} %>
+    <%= active_link_to "$$$", root_path(price: 3, cuisine: @cuisine, location: @location), active: { price: 3} %>
+    <%= active_link_to "$$$$", root_path(price: 4, cuisine: @cuisine, location: @location), active: { price: 4} %>
   </div>
 
   <div>
-    <%= link_to "Asian", root_path(cuisine: "Asian", price: @price) %>
-    <%= link_to "American", root_path(cuisine: "American", price: @price) %>
-    <%= link_to "French", root_path(cuisine: "French", price: @price) %>
+    <%= active_link_to "Asian", root_path(cuisine: "Asian", price: @price, location: @location), active: { cuisine: "Asian" } %>
+    <%= active_link_to "American", root_path(cuisine: "American", price: @price, location: @location), active: { cuisine: "American" } %>
+    <%= active_link_to "French", root_path(cuisine: "French", price: @price, location: @location), active: { cuisine: "French" }%>
   </div>
 
   <form class="search" action="/">
