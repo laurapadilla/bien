@@ -8,7 +8,7 @@ class CommentsController < ApplicationController
 
   @comment.save
 
-# go back to ewview show page
+  # go back to review show page
   redirect_to review_path(@review)
 
   end
