@@ -1,0 +1,19 @@
+@import 'abstracts';
+
+
+.comments {
+  margin-bottom: 1rem;
+  .comment {
+    border-bottom: 2px solid $orange;
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+
+    .posted {
+      color: lighten($text-color, 50%);
+      margin-top: 0.75rem;
+      font-size: 0.875rem;
+    }
+}
+
+
+}
