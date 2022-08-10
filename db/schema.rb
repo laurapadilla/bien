@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_07_29_182600) do
+ActiveRecord::Schema[7.0].define(version: 2022_08_04_211244) do
   create_table "comments", force: :cascade do |t|
     t.text "body"
     t.integer "review_id", null: false
@@ -33,6 +33,15 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_29_182600) do
     t.text "address"
     t.float "latitude"
     t.float "longitude"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "username"
+    t.string "email"
+    t.string "password_digest"
+    t.string "real_name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   add_foreign_key "comments", "reviews"
