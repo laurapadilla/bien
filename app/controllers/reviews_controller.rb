@@ -1,5 +1,8 @@
 class ReviewsController < ApplicationController
 
+  # check if user is logged in
+  before_action :check_login, except: [:index, :show]
+
 # List of Reviews/Home page
   def index
     # store the price in a variable
@@ -66,7 +69,7 @@ class ReviewsController < ApplicationController
     @review.destroy
 
     # redirect to homepage
-    redirect_to root_path
+    redirect_to root_path, status: :see_other
   end
 
   # Edit review

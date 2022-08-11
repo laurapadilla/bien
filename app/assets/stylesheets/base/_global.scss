@@ -38,8 +38,14 @@ header {
     vertical-align: initial;
   }
 
-  nav a {
+  nav {
     font-size: $font-size-lg;
+  }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
   }
 }
 
@@ -53,6 +59,7 @@ footer {
   bottom: 0;
   left: 0;
   width: 100%;
+  background: $white;
   color: $footer-text;
 }
 

@@ -36,7 +36,7 @@
 
 <section class="actions">
     <%= link_to "Edit review", edit_review_path(@review) %>
-    <%= button_to "Delete review", review_path(@review), method: :delete, onclick: "return confirm('Are you sure??')"  %>
+    <%= link_to "Delete review", review_path(@review), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}  %>
 </section>
 
 
