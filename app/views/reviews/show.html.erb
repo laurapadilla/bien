@@ -1,19 +1,39 @@
 <% content_for :page_title, @review.title %>
 
 <section class="review-header">
-  <h1 class="title">
-    <%= @review.title %>
-  </h1>
+  <div class="">
+    <h1 class="title">
+      <%= @review.title %>
+    </h1>
 
-  <p class="posted">Posted by
-    <% if @review.user.present? %>
-      <%= link_to @review.user.username, user_path(@review.user) %>
-    <% else %>
-      Anonymous
-    <% end %>
-  </p>
+    <p class="posted">Posted by
+      <% if @review.user.present? %>
+        <%= link_to @review.user.username, user_path(@review.user) %>
+      <% else %>
+        Anonymous
+      <% end %>
+    </p>
+  </div>
+  <% if is_logged_in? %>
+    <p>
+      <%# if the review has any bookmarks from this user, then show Unbookmark %>
+      <% if @review.bookmarks.where(user: @current_user).any? %>
+        <%= link_to 'Remove Bookmark', review_bookmark_path(@review), data: { turbo_method: :delete } %>
+      <% else%>
+        <%= link_to 'Bookmark', review_bookmark_path(@review), data: { turbo_method: :post } %>
+      <% end %>
+    </p>
+  <% end %>
 </section>
 
+<h4>Bookmarked by</h4>
+<ul>
+  <% @review.bookmarks.each do  |bookmark| %>
+    <li>
+      <%= bookmark.user.username %>
+    </li>
+  <% end %>
+</ul>
 
 <h3 class="restaurant">
   <%= @review.restaurant %>
