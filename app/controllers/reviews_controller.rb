@@ -39,11 +39,14 @@ class ReviewsController < ApplicationController
 
 # Create a review
   def create
-    # take info from form and add it to the database
+    # take info from the form and add it to the model/database
     @review = Review.new(form_params)
 
+    # and the associate it with the user
+    @review.user = @current_user
+
     # check if the model can be saved
-    # if reviewed is saved, redirect to the homepage
+    # if review is saved, then redirect to the homepage
     # if it isn't saved, then show the new review form
     if @review.save
       redirect_to root_path
@@ -65,8 +68,10 @@ class ReviewsController < ApplicationController
     # find individual review to destroy
     @review = Review.find(params[:id])
 
-    # destroy
-    @review.destroy
+    # destroy if they have access
+    if @review.user == @current_user
+      @review.destroy
+    end
 
     # redirect to homepage
     redirect_to root_path, status: :see_other
@@ -76,6 +81,10 @@ class ReviewsController < ApplicationController
   def edit
     # find individual review to edit
     @review = Review.find(params[:id])
+
+    if @review.user != @current_user
+      redirect_to root_path, status: :see_other
+    end
   end
 
   # Update review
@@ -83,13 +92,17 @@ class ReviewsController < ApplicationController
     # find individual review to edit
     @review = Review.find(params[:id])
 
-    # update with new info
-    if @review.update(form_params)
-      #redirect to home
-      redirect_to review_path(@review)
+    if @review.user != @current_user
+      redirect_to root_path, status: :see_other
 
     else
-      render "edit", status: :unprocessable_entity
+      # update with new info
+      if @review.update(form_params)
+        #redirect to home
+        redirect_to review_path(@review)
+      else
+        render "edit", status: :unprocessable_entity
+      end
     end
   end
 

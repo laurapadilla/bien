@@ -1,8 +1,9 @@
 @import 'abstracts';
 
-.title {
+.review-header {
   margin-bottom: 2rem;
 }
+
 
 h3 {
   font-size: $font-size-lg;
@@ -28,8 +29,13 @@ form {
 }
 
 .body {
+  background: lighten($gray, 35%);
+  padding: 0.5rem 1rem;
+  margin-top: 1rem;
   p {
     margin: 1rem 0;
+    font-weight: 600;
+    font-family: $serif;
   }
 }
 
@@ -38,6 +44,7 @@ form {
    display: flex;
    gap: 1rem;
    margin-top: 1rem;
+
 
    button {
      @include btn;
@@ -48,4 +55,9 @@ form {
        color: darken($danger, 10%);
      }
    }
+ }
+
+ .empty {
+   color: $text-color-light;
+   font-style: italic;
  }

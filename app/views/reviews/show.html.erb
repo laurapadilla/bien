@@ -1,8 +1,19 @@
 <% content_for :page_title, @review.title %>
 
-<h1 class="title">
-  <%= @review.title %>
-</h1>
+<section class="review-header">
+  <h1 class="title">
+    <%= @review.title %>
+  </h1>
+
+  <p class="posted">Posted by
+    <% if @review.user.present? %>
+      <%= link_to @review.user.username, user_path(@review.user) %>
+    <% else %>
+      Anonymous
+    <% end %>
+  </p>
+</section>
+
 
 <h3 class="restaurant">
   <%= @review.restaurant %>
@@ -34,26 +45,38 @@
   <%= simple_format @review.body %>
 </div>
 
-<section class="actions">
-    <%= link_to "Edit review", edit_review_path(@review) %>
-    <%= link_to "Delete review", review_path(@review), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}  %>
-</section>
+<% if @review.user == @current_user %>
+  <section class="actions">
+      <%= link_to "Edit review", edit_review_path(@review) %>
+      <%= link_to "Delete review", review_path(@review), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}  %>
+  </section>
+<% end %>
 
 
-<h3>Comments</h3>
+<section class="comments-wrapper">
+  <h3>Comments</h3>
+  <div class="comments">
+    <% if @review.comments.present? %>
+      <% @review.comments.order("created_at desc").each do |comment| %>
 
-<section class="comments">
-  <% @review.comments.order("created_at desc").each do |comment| %>
-
-    <div class="comment">
-      <p>
-        <%= simple_format comment.body %>
-      </p>
-      <p class="posted">Posted <%= time_ago_in_words comment.created_at %> ago</p>
-    </div>
-
-
-  <% end %>
+        <div class="comment">
+          <p>
+            <%= simple_format comment.body %>
+          </p>
+          <p class="posted">Posted by
+            <% if comment.user.present? %>
+              <%= link_to comment.user.username, user_path(comment.user) %>
+            <% else %>
+              Anonymous
+            <% end %>
+            <%= time_ago_in_words comment.created_at %> ago
+          </p>
+        </div>
+      <% end %>
+    <% else%>
+      <p class="empty">No comments yet! Be the first to write a comment on this review.</p>
+    <%end%>
+  </div>
 </section>
 
 

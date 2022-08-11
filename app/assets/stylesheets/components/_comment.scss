@@ -1,15 +1,28 @@
 @import 'abstracts';
 
+.comments-wrapper {
+  border-bottom: 2px solid $accent;
+  border-top: 2px solid $accent;
+  padding: 1rem 0;
+  margin: 1rem 0;
+}
 
 .comments {
   margin-bottom: 1rem;
+
   .comment {
-    border-bottom: 2px solid $orange;
+    border-bottom: 1px solid $border-color;
     margin-bottom: 1rem;
     padding-bottom: 1rem;
 
+    &:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
     .posted {
-      color: lighten($text-color, 50%);
+      color: $text-color-light;
       margin-top: 0.75rem;
       font-size: 0.875rem;
     }

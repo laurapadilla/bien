@@ -4,6 +4,10 @@ class UsersController < ApplicationController
     @users = User.all
   end
 
+  def show
+    @user = User.find_by(username: params[:id])
+  end
+
   # Add a new users
   def new
     @user = User.new

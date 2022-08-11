@@ -8,11 +8,14 @@ $yellow: #ffeccf;
 $white: #fff;
 
 //  Typography
-$titleFont: 'Lora';
-$bodyFont: 'Karla';
+$sans: 'Karla';
+$serif: 'Lora';
+$titleFont: $serif;
+$bodyFont: $sans;
 $text-color: $black;
 $text-color-inverted: $white;
 $text-color-accent: $orange;
+$text-color-light: $gray;
 $footer-text: $gray;
 $link-text: $orange;
 $letter-spacing-sm: -0.1px;
@@ -37,3 +40,4 @@ $danger: $red;
 
 // Utilities
 $transitionAll: all 0.2s ease-in-out;
+$accent: $orange;

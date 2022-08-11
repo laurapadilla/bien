@@ -10,12 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_08_04_211244) do
+ActiveRecord::Schema[7.0].define(version: 2022_08_11_144026) do
   create_table "comments", force: :cascade do |t|
     t.text "body"
     t.integer "review_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id"
     t.index ["review_id"], name: "index_comments_on_review_id"
   end
 
@@ -33,6 +34,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_04_211244) do
     t.text "address"
     t.float "latitude"
     t.float "longitude"
+    t.integer "user_id"
   end
 
   create_table "users", force: :cascade do |t|

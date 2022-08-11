@@ -31,6 +31,10 @@ header, main, footer {
 header {
   @include flex;
   background: $header-bg-color;
+  position:fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
 
 
   img {
@@ -50,7 +54,9 @@ header {
 }
 
 main {
-  min-height: calc(100vh - 150px);
+  margin-top: 7rem;
+  min-height: 100vh;
+  margin-bottom: 8rem;
 }
 
 footer {

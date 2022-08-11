@@ -16,7 +16,7 @@
   input {
     outline: none;
     &:focus, &:active {
-      border: 1px solid $orange;
+      border: 1px solid $accent;
     }
   }
 }
