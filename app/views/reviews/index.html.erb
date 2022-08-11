@@ -24,17 +24,21 @@
   </form>
 </nav>
 
-<ul>
-  <% @reviews.each do |review| %>
-    <li class="review">
-      <%= link_to review_path(review) do %>
-      <h2><%= review.title %></h2>
-      <p class="summary">
-        <%= review.cuisine %> -
-        <%= pluralize review.comments.count, "comment" %>
+<ul
+  <% if @reviews.present? %>
+    <% @reviews.each do |review| %>
+      <li class="review">
+        <%= link_to review_path(review) do %>
+        <h2><%= review.title %></h2>
+        <p class="summary">
+          <%= review.cuisine %> -
+          <%= pluralize review.comments.count, "comment" %>
 
-      </p>
-      <%end%>
-    </li>
+        </p>
+        <%end%>
+      </li>
+    <% end %>
+  <% else %>
+    <h2>No restaurant reviews yet!</h2>
   <% end %>
 </ul>
