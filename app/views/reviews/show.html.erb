@@ -16,7 +16,6 @@
   </div>
   <% if is_logged_in? %>
     <p>
-      <%# if the review has any bookmarks from this user, then show Unbookmark %>
       <% if @review.bookmarks.where(user: @current_user).any? %>
         <%= link_to 'Remove Bookmark', review_bookmark_path(@review), data: { turbo_method: :delete } %>
       <% else%>

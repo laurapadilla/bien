@@ -24,8 +24,8 @@
   </form>
 </nav>
 
-<ul
-  <% if @reviews.present? %>
+<% if @reviews.present? %>
+<ul>
     <% @reviews.each do |review| %>
       <li class="review">
         <%= link_to review_path(review) do %>
@@ -33,12 +33,11 @@
         <p class="summary">
           <%= review.cuisine %> -
           <%= pluralize review.comments.count, "comment" %>
-
         </p>
         <%end%>
       </li>
     <% end %>
-  <% else %>
-    <h2>No restaurant reviews yet!</h2>
-  <% end %>
 </ul>
+<% else %>
+  <h2>No restaurant reviews yet!</h2>
+<% end %>
