@@ -1,7 +1,11 @@
 <% content_for :page_title, @review.title %>
 
+  <% if @review.photo.present? %>
+    <%= image_tag @review.photo.medium.url %>
+  <% end %>
+
 <section class="review-header">
-  <div class="">
+  <div>
     <h1 class="title">
       <%= @review.title %>
     </h1>
@@ -66,7 +70,9 @@
 
 <% if @review.user == @current_user %>
   <section class="actions">
-      <%= link_to "Edit review", edit_review_path(@review) %>
+      <% if @review.created_at > 1.hour.ago %>
+        <%= link_to "Edit review", edit_review_path(@review) %>
+        <% end %>
       <%= link_to "Delete review", review_path(@review), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}  %>
   </section>
 <% end %>

@@ -26,14 +26,17 @@
 
 <% if @reviews.present? %>
 <ul>
-    <% @reviews.each do |review| %>
+    <% @reviews.order("created_at desc").each do |review| %>
       <li class="review">
         <%= link_to review_path(review) do %>
-        <h2><%= review.title %></h2>
-        <p class="summary">
-          <%= review.cuisine %> -
-          <%= pluralize review.comments.count, "comment" %>
-        </p>
+        <% if review.photo.present? %>
+          <%= image_tag review.photo.thumb.url %>
+        <% end %>
+          <h2><%= review.title %></h2>
+          <p class="summary">
+            <%= review.cuisine %> -
+            <%= pluralize review.comments.count, "comment" %>
+          </p>
         <%end%>
       </li>
     <% end %>
