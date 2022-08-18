@@ -10,7 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_08_12_182344) do
+ActiveRecord::Schema[7.0].define(version: 2022_08_15_185632) do
+  create_table "active_admin_comments", force: :cascade do |t|
+    t.string "namespace"
+    t.text "body"
+    t.string "resource_type"
+    t.integer "resource_id"
+    t.string "author_type"
+    t.integer "author_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["author_type", "author_id"], name: "index_active_admin_comments_on_author"
+    t.index ["namespace"], name: "index_active_admin_comments_on_namespace"
+    t.index ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource"
+  end
+
   create_table "bookmarks", force: :cascade do |t|
     t.integer "review_id", null: false
     t.integer "user_id", null: false
@@ -54,6 +68,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_12_182344) do
     t.string "real_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "is_admin", default: false
   end
 
   add_foreign_key "bookmarks", "reviews"
